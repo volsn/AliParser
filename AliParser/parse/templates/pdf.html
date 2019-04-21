@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merchant Products</title>
+    <style type="text/css">
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
+        .products {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            width: 45%;
+            margin: 40px 20px;
+            display: flex;
+        }
+
+        .product__description {
+            font-size: 13px;
+        }
+
+        .product__image img {
+            width: 200px;
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="products">
+        {% for product in products %}
+            <div class="product">
+                <div class="product__image">
+                    <img src="{{ product.image_source }}">
+                </div>
+
+                <div class="product__description">
+                    <p>ID Number <b>#{{ product.id }}</b></p>
+                    <p>
+                        <b>Sizes:</b>
+                        {% for size in product.sizes %}
+                            {{ size }};
+                        {% endfor %}
+                    </p>
+                    <p>
+                        <b>Prices:</b><br>
+                        {% for price in product.prices %}
+                            {{ price }}
+                            <br>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
