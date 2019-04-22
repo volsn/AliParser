@@ -1,0 +1,4 @@
+fpdf
+xhtml2pdf
+django
+selenium
